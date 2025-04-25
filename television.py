@@ -79,6 +79,6 @@ class Television:
         :return: tv status
         """
         if self.__muted:
-            return f'Volume = {Television.MIN_VLOUME}'
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VLOUME}'
         else:
             return f'xxx'
