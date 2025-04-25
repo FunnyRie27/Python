@@ -11,6 +11,10 @@ class Television:
         self.__channel = Television.MIN_CHANNEL
 
     def power(self):
+        """
+temp1
+
+"""
         if self.__status:
             self.__status = False
         else:
