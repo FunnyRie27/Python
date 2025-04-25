@@ -51,6 +51,6 @@ class Television:
 
     def __str__(self):
         if self.__muted:
-            return f'Power = {self.__status}, Channel {self.__channel} Volume = {Television.MIN_VLOUME}'
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VLOUME}'
         else:
             return f'xxx'
