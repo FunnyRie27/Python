@@ -22,7 +22,7 @@ class Television:
                 self.__muted = False
             else:
                 self.__muted = True
-
+                
     def channel_up(self):
         if self.__status:
             if self.__channel > Television.MIN_CHANNEL:
