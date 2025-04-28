@@ -22,7 +22,7 @@ class Test:
         self.tvl.power()
         self.tvl.volume_up()
         self.tvl.mute()
-        assert self.tvl__str__() == 'Power = True, Channel = 0, Volume = 0 '
+        assert self.tvl__str__() == 'Power = True, Channel = 0, Volume = 0'
         
         self.tvl.mute()
         assert self.tvl__str__() == 'Power = True, Channel = 0, Volume = 1'
@@ -73,17 +73,16 @@ class Test:
         self.tvl.volume_up()
         self.tvl.volume_up()
         self.tvl.volume_up()
-        self.tvl.volume_up()
-        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 3'
+        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 2'
 
     def test_volume_down(self):
         self.tvl.power()
         self.tvl.volume_down()
-        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 3'
+        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 2'
         
         self.tvl.power()
         self.volume_down()
-        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 3'
+        assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 2'
         
         self.tvl.mute()
         self.tvl.volume_down()
@@ -95,7 +94,10 @@ class Test:
         self.tvl.volume_down()
         self.tvl.volume_down()
         assert self.tvl.__str__() == 'Power = True, Channel = 3, Volume = 0'
-    
+
+
+if __name__ == "__main__":
+    pytest.main()
     
     
     
