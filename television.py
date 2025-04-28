@@ -32,8 +32,8 @@ class Television:
                 self.__volume = Television.volume_tracker
                 self.__muted = False
             else:
-                Television.volume_tracker = self.__volume
                 self.__muted = True
+                Television.volume_tracker = self.__volume
                 self.__volume = Television.MIN_VOLUME
 
     def channel_up(self):
