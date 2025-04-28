@@ -3,8 +3,9 @@ class Television:
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
+    volume_tracker = 0
 
-    def __init__(self) -> None:
+    def __init__(self):
         """
         Method to define variables
         """
@@ -28,9 +29,12 @@ class Television:
         """
         if self.__status:
             if self.__muted:
+                self.__volume = Television.volume_tracker
                 self.__muted = False
             else:
+                Television.volume_tracker = self.__volume
                 self.__muted = True
+                self.__volume = Television.MIN_VOLUME
 
     def channel_up(self):
         """
@@ -58,8 +62,12 @@ class Television:
         """
         if self.__status:
             self.__muted = False
+            self.__volume = Television.volume_tracker
             if self.__volume < Television.MAX_VOLUME:
                 self.__volume += 1
+                Television.volume_tracker = self.__volume
+            else:
+                self.__volume = Television.MIN_VOLUME
 
     def volume_down(self):
         """
@@ -67,8 +75,12 @@ class Television:
         """
         if self.__status:
             self.__muted = False
+            self.__volume = Television.volume_tracker
             if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
+                Television.volume_tracker = self.__volume
+            else:
+                self.__volume = Television.MAX_VOLUME
 
     def __str__(self) -> str:
         """
@@ -76,11 +88,7 @@ class Television:
         :return: tv status
         """
         if self.__muted:
-            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VOLUME}'
         else:
-            return f'xxx'
-        
-        
-        
-        
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
         
